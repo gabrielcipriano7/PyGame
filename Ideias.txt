@@ -1,0 +1,4 @@
+
+1. A cada estrela sobe um nivel (5 estrelas).
+2. A vida aumenta a cada quejiho que vem.
+3. Conforme o tempo vai passando o nivel aumenta ( )
