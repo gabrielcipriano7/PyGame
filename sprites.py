@@ -24,32 +24,33 @@ class Mice(pygame.sprite.Sprite):
         self.rect.y += self.speed.y
 
         # Mantem dentro da tela
-        if self.rect.bottom > HEIGHT:
-            self.rect.bottom = HEIGHT
-        if self.rect.top < 0:
-            self.rect.top = 0
+        if self.rect.bottom > HEIGHT - MICE_HEIGHT - 110:
+            self.rect.bottom = HEIGHT - MICE_HEIGHT - 110
+        if self.rect.top < 110:
+            self.rect.top = 110
 
 class Police (pygame.sprite.Sprite):
     def __init__(self, assets):
         # Construtor da classe mãe (Sprite).
         pygame.sprite.Sprite.__init__(self)
 
+        lista_posicoes = [110, 220, 330]
         self.image = assets[POLICE_IMG]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
-        self.rect.x = random.randint(0, WIDTH-POLICE_WIDTH)
-        self.rect.y = random.randint(-100, -POLICE_HEIGHT)
+        self.rect.x = WIDTH
+        self.rect.y = random.choice(lista_posicoes)
         self.speedx = random.randint(-3, 3)
-        self.speedy = random.randint(2, 9)
+
 
     def update(self):
         # Atualizando a posição do meteoro
         self.rect.x += self.speedx
-        self.rect.y += self.speedy
-        # Se o meteoro passar do final da tela, volta para cima e sorteia
+        self.rect.y = self.rect.y
+        # Se a policia passar do final da tela, volta para a direita e sorteia
         # novas posições e velocidades
+        lista_posicoes = [110, 220, 330]
         if self.rect.top > HEIGHT or self.rect.right < 0 or self.rect.left > WIDTH:
-            self.rect.x = random.randint(0, WIDTH-POLICE_WIDTH)
-            self.rect.y = random.randint(-100, -POLICE_HEIGHT)
+            self.rect.x = WIDTH
+            self.rect.y = random.choice(lista_posicoes)
             self.speedx = random.randint(-3, 3)
-            self.speedy = random.randint(2, 9)
