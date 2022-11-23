@@ -1,4 +1,4 @@
-1. Colocar animação 
-2. Decidir como vai ganhar pontuação
-3. Colocar as fases
-4. 
+1. Colocar animação.
+2. Decidir como vai ganhar pontuação.
+3. Colocar as fases.
+4. Inicialização do jogo (Primeira tentativa: Tela fora de proporção e jogo não roda).
