@@ -4,8 +4,8 @@ from config import WIDTH, HEIGHT, POLICE_WIDTH, POLICE_HEIGHT, MICE_WIDTH, MICE_
 
 
 BACKGROUND = 'background_img'
-POLICE_IMG = 'meteor_img'
-MICE_IMG = 'ship_img'
+POLICE_IMG = 'police_img'
+MICE_IMG = 'mice_img'
 SCORE_FONT = 'score_font'
 BOOM_SOUND = 'boom_sound'
 DESTROY_SOUND = 'destroy_sound'

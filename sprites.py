@@ -14,14 +14,14 @@ class Mice(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.centery = HEIGHT / 2
         self.rect.left = WIDTH - (WIDTH -10)
-        self.speed.y = 0
+        self.speedy = 0
         self.groups = groups
         self.assets = assets
 
 
     def update(self):
         # Atualização da posição do rato
-        self.rect.y += self.speed.y
+        self.rect.y += self.speedy
 
         # Mantem dentro da tela
         if self.rect.bottom > HEIGHT - MICE_HEIGHT - 110:

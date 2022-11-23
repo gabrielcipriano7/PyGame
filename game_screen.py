@@ -73,7 +73,7 @@ def game_screen(window):
 
         if state == PLAYING:
             # Verifica se houve colisão entre tiro e meteoro
-            hits = pygame.sprite.groupcollide(all_police, True, pygame.sprite.collide_mask)
+            hits = pygame.sprite.groupcollide(player, all_police, True, False, pygame.sprite.collide_mask)
             for police in hits: # As chaves são os elementos do primeiro grupo (meteoros) que colidiram com alguma bala
                 # O meteoro e destruido e precisa ser recriado
                 assets[DESTROY_SOUND].play()
