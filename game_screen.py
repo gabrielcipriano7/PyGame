@@ -1,7 +1,7 @@
 import pygame
 from config import FPS, WIDTH, HEIGHT, BLACK, YELLOW, RED
 from assets import load_assets, DESTROY_SOUND, BOOM_SOUND, BACKGROUND, SCORE_FONT
-from sprites import Mice, Police, Explosion
+from sprites import Mice, Police
 
 
 def game_screen(window):
@@ -62,9 +62,9 @@ def game_screen(window):
                 if event.type == pygame.KEYUP:
                     # Dependendo da tecla, altera a velocidade.
                     if event.key in keys_down and keys_down[event.key]:
-                        if event.key == pygame.K_LEFT:
+                        if event.key == pygame.K_DOWN:
                             player.speedx += 8
-                        if event.key == pygame.K_RIGHT:
+                        if event.key == pygame.K_UP:
                             player.speedx -= 8
 
         # ----- Atualiza estado do jogo
@@ -86,7 +86,7 @@ def game_screen(window):
                 if score % 1000 == 0:
                     lives += 1
 
-            # Verifica se houve colisão entre nave e meteoro
+            # Verifica se houve colisão entre rato e policia
             hits = pygame.sprite.spritecollide(player, all_police, True, pygame.sprite.collide_mask)
             if len(hits) > 0:
                 # Toca o som da colisão
