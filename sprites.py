@@ -12,25 +12,22 @@ class Mice(pygame.sprite.Sprite):
         self.image = assets[MICE_IMG]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
-        self.rect.centerx = WIDTH / 2
-        self.rect.bottom = HEIGHT - 10
-        self.speedx = 0
+        self.rect.centery = HEIGHT / 2
+        self.rect.left = WIDTH - (WIDTH -10)
+        self.speed.y = 0
         self.groups = groups
         self.assets = assets
 
-        # Só será possível atirar uma vez a cada 500 milissegundos
-        self.last_shot = pygame.time.get_ticks()
-        self.shoot_ticks = 500
 
     def update(self):
-        # Atualização da posição da nave
-        self.rect.x += self.speedx
+        # Atualização da posição do rato
+        self.rect.y += self.speed.y
 
         # Mantem dentro da tela
-        if self.rect.right > WIDTH:
-            self.rect.right = WIDTH
-        if self.rect.left < 0:
-            self.rect.left = 0
+        if self.rect.bottom > HEIGHT:
+            self.rect.bottom = HEIGHT
+        if self.rect.top < 0:
+            self.rect.top = 0
 
 class Police (pygame.sprite.Sprite):
     def __init__(self, assets):
