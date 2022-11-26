@@ -34,6 +34,8 @@ def game_screen(window):
 
     keys_down = {}
     score = 0
+    time = pygame.time.get_ticks()
+    time = time/1000
     lives = 3
 
     # ===== Loop principal =====
@@ -71,6 +73,9 @@ def game_screen(window):
 
         if state == PLAYING:
 
+            
+            score += 10
+
             # Verifica se houve colisão entre rato e policia
             hits = pygame.sprite.spritecollide(player, all_police, True, pygame.sprite.collide_mask)
             if len(hits) > 0:
@@ -81,6 +86,8 @@ def game_screen(window):
                 state = EXPLODING
                 keys_down = {}
               
+            
+
         elif state == EXPLODING:
 
             if lives == 0:
