@@ -34,8 +34,7 @@ def game_screen(window):
 
     keys_down = {}
     score = 0
-    time = pygame.time.get_ticks()
-    time = time/1000
+
     lives = 3
 
     # ===== Loop principal =====
