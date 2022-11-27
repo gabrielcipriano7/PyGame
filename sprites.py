@@ -41,7 +41,6 @@ class Police (pygame.sprite.Sprite):
         self.rect.y = random.choice(lista_posicoes)
         self.speedx = random.randint(-7, -1)
 
-
     def update(self):
         # Atualizando a posição da policia
         self.rect.x += self.speedx
@@ -53,4 +52,3 @@ class Police (pygame.sprite.Sprite):
             self.rect.x = WIDTH
             self.rect.y = random.choice(lista_posicoes)
             self.speedx = random.randint(-7, -1)
-       
