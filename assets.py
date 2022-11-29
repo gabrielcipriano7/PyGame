@@ -1,11 +1,11 @@
 import pygame
 import os
-from config import POLICE_WIDTH, POLICE_HEIGHT, MICE_WIDTH, MICE_HEIGHT, IMG_DIR, SND_DIR, FNT_DIR
+from config import WIDTH, HEIGHT, POLICE_WIDTH, POLICE_HEIGHT, MICE_WIDTH, MICE_HEIGHT, IMG_DIR, SND_DIR, FNT_DIR
 
 
-BACKGROUND = 'background'
-POLICE_IMG = 'meteor_img'
-MICE_IMG = 'ship_img'
+BACKGROUND = 'background_img'
+POLICE_IMG = 'police_img'
+MICE_IMG = 'mice_img'
 SCORE_FONT = 'score_font'
 BOOM_SOUND = 'boom_sound'
 DESTROY_SOUND = 'destroy_sound'
@@ -13,11 +13,13 @@ DESTROY_SOUND = 'destroy_sound'
 
 def load_assets():
     assets = {}
-    assets['background'] = pygame.image.load('assets/img/cenario.png').convert()
+    assets['background_img'] = pygame.image.load('assets/img/cenario.png').convert()
+    assets['background_img'] = pygame.transform.scale(assets['background_img'], (WIDTH, HEIGHT))
     assets['police_img'] = pygame.image.load('assets/img/carro.png').convert_alpha()
-    assets['police_img'] = pygame.transform.scale(assets['meteor_img'], (POLICE_WIDTH, POLICE_HEIGHT))
+    assets['police_img'] = pygame.transform.scale(assets['police_img'], (POLICE_WIDTH, POLICE_HEIGHT))
+    assets['police_img'] = pygame.transform.rotate(assets['police_img'], 90)
     assets['mice_img'] = pygame.image.load('assets/img/rato.png').convert_alpha()
-    assets['ship_img'] = pygame.transform.scale(assets['ship_img'], (MICE_WIDTH, MICE_HEIGHT))
+    assets['mice_img'] = pygame.transform.scale(assets['mice_img'], (MICE_WIDTH, MICE_HEIGHT))
 
     assets["score_font"] = pygame.font.Font('assets/font/PressStart2P.ttf', 28)
     

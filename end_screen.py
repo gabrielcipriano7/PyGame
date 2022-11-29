@@ -35,8 +35,8 @@ def end_screen(screen):
 
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(BLACK)
-        screen.blit(text1, (110, 270))
-        screen.blit(text2, (40, 400))
+        screen.blit(text1, (200, 130))
+        screen.blit(text2, (130, 350))
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()

@@ -21,11 +21,8 @@ def game_screen(window):
     # Criando o jogador
     player = Mice(groups, assets)
     all_sprites.add(player)
-    # Criando os meteoros
-    for i in range(8):
-        police = Police(assets)
-        all_sprites.add(police)
-        all_police.add(police)
+    
+
 
     DONE = 0
     PLAYING = 1
@@ -34,7 +31,12 @@ def game_screen(window):
 
     keys_down = {}
     score = 0
-    lives = 3
+
+    lives = 3 
+
+    x1 = 0
+    x2 = 0
+    x3 = 0
 
     # ===== Loop principal =====
     pygame.mixer.music.play(loops=-1)
@@ -52,39 +54,55 @@ def game_screen(window):
                 if event.type == pygame.KEYDOWN:
                     # Dependendo da tecla, altera a velocidade.
                     keys_down[event.key] = True
-                    if event.key == pygame.K_LEFT:
-                        player.speedx -= 8
-                    if event.key == pygame.K_RIGHT:
-                        player.speedx += 8
-                    if event.key == pygame.K_SPACE:
-                        player.shoot()
+                    if event.key == pygame.K_DOWN:
+                        player.speedy += 8
+                    if event.key == pygame.K_UP:
+                        player.speedy -= 8
                 # Verifica se soltou alguma tecla.
                 if event.type == pygame.KEYUP:
                     # Dependendo da tecla, altera a velocidade.
                     if event.key in keys_down and keys_down[event.key]:
                         if event.key == pygame.K_DOWN:
-                            player.speedx += 8
+                            player.speedy -= 8
                         if event.key == pygame.K_UP:
-                            player.speedx -= 8
+                            player.speedy += 8
 
         # ----- Atualiza estado do jogo
-        # Atualizando a posição dos meteoros
+        # Atualizando a posição dos carros de policia
         all_sprites.update()
 
-        if state == PLAYING:
-            # Verifica se houve colisão entre tiro e meteoro
-            hits = pygame.sprite.groupcollide(all_police, True, pygame.sprite.collide_mask)
-            for police in hits: # As chaves são os elementos do primeiro grupo (meteoros) que colidiram com alguma bala
-                # O meteoro e destruido e precisa ser recriado
-                assets[DESTROY_SOUND].play()
-                m = Police(assets)
-                all_sprites.add(m)
-                all_police.add(m)
 
-                # Ganhou pontos!
-                score += 100
-                if score % 1000 == 0:
-                    lives += 1
+        if state == PLAYING:
+
+            
+            score += 10
+
+            if score <= 1000:
+                if x1 < 1:
+                        # Criando os carros de polícia
+                    for i in range(2):
+                        police = Police(assets)
+                        all_sprites.add(police)
+                        all_police.add(police)
+                        x1 += 1
+
+            if score > 1000 and score < 2000:
+                if x2 < 1:
+                        # Criando os carros de polícia
+                    for i in range(4):
+                        police = Police(assets)
+                        all_sprites.add(police)
+                        all_police.add(police)
+                        x2 += 1
+
+            if score >= 2000:
+                if x3 < 1:
+                        # Criando os carros de polícia
+                    for i in range(6):
+                        police = Police(assets)
+                        all_sprites.add(police)
+                        all_police.add(police)
+                        x3 += 1
 
             # Verifica se houve colisão entre rato e policia
             hits = pygame.sprite.spritecollide(player, all_police, True, pygame.sprite.collide_mask)
@@ -96,6 +114,8 @@ def game_screen(window):
                 state = EXPLODING
                 keys_down = {}
               
+            
+
         elif state == EXPLODING:
 
             if lives == 0:

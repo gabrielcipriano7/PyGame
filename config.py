@@ -11,10 +11,10 @@ HEIGHT = 440 # Altura da tela
 FPS = 30 # Frames por segundo
 
 # Define tamanhos
-POLICE_WIDTH = 50
-POLICE_HEIGHT = 38
-MICE_WIDTH = 50
-MICE_HEIGHT = 38
+POLICE_WIDTH = 100
+POLICE_HEIGHT = 76
+MICE_WIDTH = 75
+MICE_HEIGHT = 57
 
 # Define algumas variáveis com as cores básicas
 WHITE = (255, 255, 255)
