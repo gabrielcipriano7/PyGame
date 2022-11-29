@@ -21,11 +21,8 @@ def game_screen(window):
     # Criando o jogador
     player = Mice(groups, assets)
     all_sprites.add(player)
-    # Criando os carros de polícia
-    for i in range(8):
-        police = Police(assets)
-        all_sprites.add(police)
-        all_police.add(police)
+    
+
 
     DONE = 0
     PLAYING = 1
@@ -35,7 +32,11 @@ def game_screen(window):
     keys_down = {}
     score = 0
 
-    lives = 3
+    lives = 3 
+
+    x1 = 0
+    x2 = 0
+    x3 = 0
 
     # ===== Loop principal =====
     pygame.mixer.music.play(loops=-1)
@@ -67,13 +68,41 @@ def game_screen(window):
                             player.speedy += 8
 
         # ----- Atualiza estado do jogo
-        # Atualizando a posição dos meteoros
+        # Atualizando a posição dos carros de policia
         all_sprites.update()
+
 
         if state == PLAYING:
 
             
             score += 10
+
+            if score <= 1000:
+                if x1 < 1:
+                        # Criando os carros de polícia
+                    for i in range(2):
+                        police = Police(assets)
+                        all_sprites.add(police)
+                        all_police.add(police)
+                        x1 += 1
+
+            if score > 1000 and score < 2000:
+                if x2 < 1:
+                        # Criando os carros de polícia
+                    for i in range(4):
+                        police = Police(assets)
+                        all_sprites.add(police)
+                        all_police.add(police)
+                        x2 += 1
+
+            if score >= 2000:
+                if x3 < 1:
+                        # Criando os carros de polícia
+                    for i in range(6):
+                        police = Police(assets)
+                        all_sprites.add(police)
+                        all_police.add(police)
+                        x3 += 1
 
             # Verifica se houve colisão entre rato e policia
             hits = pygame.sprite.spritecollide(player, all_police, True, pygame.sprite.collide_mask)
