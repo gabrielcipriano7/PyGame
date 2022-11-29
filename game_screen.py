@@ -1,7 +1,8 @@
 import pygame
+import random
 from config import FPS, WIDTH, HEIGHT, BLACK, YELLOW, RED
 from assets import load_assets, DESTROY_SOUND, BOOM_SOUND, BACKGROUND, SCORE_FONT
-from sprites import Mice, Police1, Police2, Police3
+from sprites import Mice, Police, Police_control
 
 def game_screen(window):
     # Variável para o ajuste de velocidade
@@ -20,6 +21,11 @@ def game_screen(window):
     # Criando o jogador
     player = Mice(groups, assets)
     all_sprites.add(player)
+
+    for i in range(2):
+        police = Police(assets)
+        all_sprites.add(police)
+        all_police.add(police)
     
 
 
@@ -84,28 +90,18 @@ def game_screen(window):
             
             score += 10
 
-            # Criando os carros de polícia
             if score <= 1000:
-                if x1 < 1:
-                    for i in range(2):
-                        police1 = Police1(assets)
-                        all_sprites.add(police1)
-                        all_police.add(police1)
-                        x1 += 1
-            elif score > 1000 and score <= 2000:
-                if x2 < 1:
-                    for i in range(2):
-                        police2 = Police2(assets)
-                        all_sprites.add(police2)
-                        all_police.add(police2)
-                        x2 += 1
-            elif score > 2000:
-                if x3 < 1:
-                    for i in range(2):
-                        police3 = Police3(assets)
-                        all_sprites.add(police3)
-                        all_police.add(police3)
-                        x3 += 1
+                Police_control.speedx = -4
+            elif score <= 2000:
+                Police_control.speedx = -8
+            elif score <= 3000:
+                Police_control.speedx = -12
+
+
+            if random.uniform(0, 1) < 0.01:
+                police = Police(assets)
+                all_sprites.add(police)
+                all_police.add(police)
                     
             # Verifica se houve colisão entre rato e policia
             hits = pygame.sprite.spritecollide(player, all_police, True, pygame.sprite.collide_mask)

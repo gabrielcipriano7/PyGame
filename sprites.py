@@ -34,7 +34,12 @@ class Mice(pygame.sprite.Sprite):
         if self.rect.right > WIDTH - MICE_WIDTH - 10:
             self.rect.right = WIDTH - MICE_WIDTH - 10
 
-class Police1 (pygame.sprite.Sprite):
+class Police_control ():
+    speedx = -4
+
+
+
+class Police (pygame.sprite.Sprite):
     def __init__(self, assets):
         # Construtor da classe mãe (Sprite).
         pygame.sprite.Sprite.__init__(self)
@@ -48,6 +53,7 @@ class Police1 (pygame.sprite.Sprite):
         self.speedx = -4
 
     def update(self):
+        self.speedx = Police_control.speedx
         # Atualizando a posição da policia
         self.rect.x += self.speedx
         self.rect.y = self.rect.y
@@ -57,54 +63,4 @@ class Police1 (pygame.sprite.Sprite):
         if self.rect.top > HEIGHT or self.rect.right < 0 or self.rect.left > WIDTH:
             self.rect.x = WIDTH
             self.rect.y = random.choice(lista_posicoes)
-            self.speedx = -4
-
-class Police2 (pygame.sprite.Sprite):
-    def __init__(self, assets):
-        # Construtor da classe mãe (Sprite).
-        pygame.sprite.Sprite.__init__(self)
-
-        lista_posicoes = [HEIGHT/4.3, HEIGHT/2.8, HEIGHT/2.05]
-        self.image = assets[POLICE_IMG]
-        self.mask = pygame.mask.from_surface(self.image)
-        self.rect = self.image.get_rect()
-        self.rect.x = WIDTH
-        self.rect.y = random.choice(lista_posicoes)
-        self.speedx = -7
-
-    def update(self):
-        # Atualizando a posição da policia
-        self.rect.x += self.speedx
-        self.rect.y = self.rect.y
-        # Se a policia passar do final da tela, volta para a direita e sorteia
-        # novas posições e velocidades
-        lista_posicoes = [HEIGHT/4.3, HEIGHT/2.8, HEIGHT/2.05]
-        if self.rect.top > HEIGHT or self.rect.right < 0 or self.rect.left > WIDTH:
-            self.rect.x = WIDTH
-            self.rect.y = random.choice(lista_posicoes)
-            self.speedx = -7
-
-class Police3 (pygame.sprite.Sprite):
-    def __init__(self, assets):
-        # Construtor da classe mãe (Sprite).
-        pygame.sprite.Sprite.__init__(self)
-
-        lista_posicoes = [HEIGHT/4.3, HEIGHT/2.8, HEIGHT/2.05]
-        self.image = assets[POLICE_IMG]
-        self.mask = pygame.mask.from_surface(self.image)
-        self.rect = self.image.get_rect()
-        self.rect.x = WIDTH
-        self.rect.y = random.choice(lista_posicoes)
-        self.speedx = -10
-
-    def update(self):
-        # Atualizando a posição da policia
-        self.rect.x += self.speedx
-        self.rect.y = self.rect.y
-        # Se a policia passar do final da tela, volta para a direita e sorteia
-        # novas posições e velocidades
-        lista_posicoes = [HEIGHT/4.3, HEIGHT/2.8, HEIGHT/2.05]
-        if self.rect.top > HEIGHT or self.rect.right < 0 or self.rect.left > WIDTH:
-            self.rect.x = WIDTH
-            self.rect.y = random.choice(lista_posicoes)
-            self.speedx = -10
+            
