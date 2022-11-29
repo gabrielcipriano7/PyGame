@@ -14,7 +14,7 @@ def instr_screen(screen):
     font1 = pygame.font.SysFont(None, 90)
     text1 = font1.render('INSTRUÇÕES PARA JOGAR:', True, WHITE)
     font2 = pygame.font.SysFont(None, 60)
-    text2 = font2.render('• Fuja dos carros de polícia! \n• Serão 3 níveis: 1, 2 e 3', True, WHITE)
+    text2 = font2.render('• Fuja dos carros de polícia! \n• Serão 3 níveis: 1, 2 e 3 \n• O jogador se movimentará utilizandos as teclas das setas', True, WHITE)
 
     running = True
     while running:
