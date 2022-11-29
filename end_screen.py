@@ -2,7 +2,7 @@ import pygame
 import random
 from os import path
 
-from config import IMG_DIR, BLACK, FPS, GAME, QUIT
+from config import *
 
 
 def end_screen(screen):
@@ -11,10 +11,10 @@ def end_screen(screen):
 
     # Carrega o fundo da tela inicial
 
-    font1 = pygame.font.SysFont(None, 60)
-    text1 = font1.render('GAME OVER!', True, (255, 0, 0))
-    font2 = pygame.font.SysFont(None, 36)
-    text2 = font2.render('Pressione qualquer tecla para sair.', True, (255, 255, 255))
+    font1 = pygame.font.SysFont(None, 120)
+    text1 = font1.render('GAME OVER!', True, RED)
+    font2 = pygame.font.SysFont(None, 60)
+    text2 = font2.render('Pressione qualquer tecla para sair.', True, WHITE)
 
     running = True
     while running:
@@ -35,8 +35,11 @@ def end_screen(screen):
 
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(BLACK)
-        screen.blit(text1, (200, 130))
-        screen.blit(text2, (130, 350))
+
+        text1_rect = text1.get_rect(center=(WIDTH/2, HEIGHT/2.3))
+        screen.blit(text1, text1_rect)
+        text2_rect = text2.get_rect(center=(WIDTH/2, HEIGHT/1.2))
+        screen.blit(text2, text2_rect)
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
