@@ -13,8 +13,8 @@ FPS = 30 # Frames por segundo
 # Define tamanhos
 POLICE_WIDTH = WIDTH/6
 POLICE_HEIGHT = HEIGHT/5.2
-MICE_WIDTH = WIDTH/14.4
-MICE_HEIGHT = WIDTH/13.2
+MICE_WIDTH = WIDTH/15
+MICE_HEIGHT = WIDTH/14
 
 # Define algumas variáveis com as cores básicas
 WHITE = (255, 255, 255)
