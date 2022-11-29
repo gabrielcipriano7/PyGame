@@ -1,7 +1,7 @@
 import pygame
 from config import FPS, WIDTH, HEIGHT, BLACK, YELLOW, RED
 from assets import load_assets, DESTROY_SOUND, BOOM_SOUND, BACKGROUND, SCORE_FONT
-from sprites import Mice, Police
+from sprites import Mice, Police1, Police2, Police3
 
 def game_screen(window):
     # Variável para o ajuste de velocidade
@@ -82,51 +82,37 @@ def game_screen(window):
         if state == PLAYING:
 
             
-            score += 1
+            score += 10
 
+            # Criando os carros de polícia
             if score <= 1000:
                 if x1 < 1:
-                    
-                        # Criando os carros de polícia
                     for i in range(2):
-                        police = Police(assets)
-                        all_sprites.add(police)
-                        all_police.add(police)
-                        
+                        police1 = Police1(assets)
+                        all_sprites.add(police1)
+                        all_police.add(police1)
                         x1 += 1
-            
-
-            elif score > 1000 and score < 2000:
+            elif score > 1000 and score <= 2000:
                 if x2 < 1:
-                    
-                        # Criando os carros de polícia
                     for i in range(2):
-                        police = Police(assets)
-                        all_sprites.add(police)
-                        all_police.add(police)
+                        police2 = Police2(assets)
+                        all_sprites.add(police2)
+                        all_police.add(police2)
                         x2 += 1
-                    police.speedx = -6
-
-            elif score >= 2000:
+            elif score > 2000:
                 if x3 < 1:
-                    
-                        # Criando os carros de polícia
                     for i in range(2):
-                        police = Police(assets)
-                        all_sprites.add(police)
-                        all_police.add(police)
+                        police3 = Police3(assets)
+                        all_sprites.add(police3)
+                        all_police.add(police3)
                         x3 += 1
-                    police.speedx = -9
-
                     
-
             # Verifica se houve colisão entre rato e policia
             hits = pygame.sprite.spritecollide(player, all_police, True, pygame.sprite.collide_mask)
             if len(hits) > 0:
                 # Toca o som da colisão
                 assets[BOOM_SOUND].play()
                 player.kill()
-                police.kill()
                 lives -= 1
                 state = EXPLODING
                 keys_down = {}
