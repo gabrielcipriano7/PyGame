@@ -6,15 +6,15 @@ SND_DIR = path.join(path.dirname(__file__), 'assets', 'snd')
 FNT_DIR = path.join(path.dirname(__file__), 'assets', 'font')
 
 # Dados gerais do jogo.
-WIDTH = 660 # Largura da tela
-HEIGHT = 440 # Altura da tela
+WIDTH = 1280 # Largura da tela
+HEIGHT = 800 # Altura da tela
 FPS = 30 # Frames por segundo
 
 # Define tamanhos
-POLICE_WIDTH = 100
-POLICE_HEIGHT = 76
-MICE_WIDTH = 75
-MICE_HEIGHT = 57
+POLICE_WIDTH = WIDTH/6
+POLICE_HEIGHT = HEIGHT/5.2
+MICE_WIDTH = WIDTH/14.4
+MICE_HEIGHT = WIDTH/13.2
 
 # Define algumas variáveis com as cores básicas
 WHITE = (255, 255, 255)
