@@ -39,7 +39,7 @@ class Police (pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = WIDTH
         self.rect.y = random.choice(lista_posicoes)
-        self.speedx = -4
+        self.speedx = random.randint(-7, -4)
 
     def update(self):
         # Atualizando a posição da policia
@@ -51,4 +51,4 @@ class Police (pygame.sprite.Sprite):
         if self.rect.top > HEIGHT or self.rect.right < 0 or self.rect.left > WIDTH:
             self.rect.x = WIDTH
             self.rect.y = random.choice(lista_posicoes)
-            self.speedx = -4
+            self.speedx = random.randint(-7, -4)
