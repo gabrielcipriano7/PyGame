@@ -82,7 +82,7 @@ def game_screen(window):
         if state == PLAYING:
 
             
-            score += 10
+            score += 1
 
             if score <= 1000:
                 if x1 < 1:
