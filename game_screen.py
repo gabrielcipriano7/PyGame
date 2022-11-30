@@ -28,9 +28,6 @@ def game_screen(window):
         all_sprites.add(police)
         all_police.add(police)
 
-    texto1 = assets[SCORE_FONT].render("{:08d}".format('NÍVEL 1'), True, YELLOW)
-    texto2 = assets[SCORE_FONT].render("{:08d}".format('NÍVEL 2'), True, YELLOW)
-    texto3 = assets[SCORE_FONT].render("{:08d}".format('NÍVEL 3'), True, YELLOW)
 
 
     DONE = 0
@@ -97,7 +94,7 @@ def game_screen(window):
 
             #NIVEL 1
             if score <= 4000:
-                # texto = texto1
+                texto = 'LEVEL 1'
 
                 if score <= 1000:
                     Police_control.speedx = -5.5
@@ -110,8 +107,8 @@ def game_screen(window):
             
             #NIVEL 2
             if score > 4000 and score <= 8000:
-                # texto = texto2
-
+                texto = 'LEVEL 2'
+                
                 if score <= 5000:
                     Police_control.speedx = -7.5
                 elif score <= 6000:
@@ -123,7 +120,7 @@ def game_screen(window):
 
             #NIVEL 3
             if score > 8000:
-                # texto = texto3
+                texto = 'LEVEL 3'
 
                 if score <= 9000:
                     Police_control.speedx = -9.5
@@ -175,8 +172,10 @@ def game_screen(window):
         window.blit(text_surface, text_rect)
 
         # Desenhando o nível
-        # texto_rect = texto.get_rect()
-        # window.blit(texto, texto_rect)
+        text_surface2 = assets[SCORE_FONT].render(texto, True, YELLOW)
+        text_rect2 = text_surface2.get_rect()
+        text_rect2.midbottom = (WIDTH / 2,  HEIGHT - 10)
+        window.blit(text_surface2, text_rect2)
 
         # Desenhando as vidas
         text_surface = assets[SCORE_FONT].render(chr(9829) * lives, True, RED)
