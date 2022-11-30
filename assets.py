@@ -4,9 +4,13 @@ from config import WIDTH, HEIGHT, POLICE_WIDTH, POLICE_HEIGHT, MICE_WIDTH, MICE_
 
 
 BACKGROUND = 'background_img'
+INSTR_IMG = 'instr_img'
 POLICE_IMG = 'police_img'
 MICE_IMG = 'mice_img'
 SCORE_FONT = 'score_font'
+SCORE_FONT_60 = 'score_font_60'
+SCORE_FONT_40 = 'score_font_40'
+SCORE_FONT_20 = 'score_font_20'
 BOOM_SOUND = 'boom_sound'
 DESTROY_SOUND = 'destroy_sound'
 EXPLOSION_ANIM = 'explosion_anim'
@@ -21,6 +25,8 @@ def load_assets():
     assets['police_img'] = pygame.transform.rotate(assets['police_img'], 90)
     assets['mice_img'] = pygame.image.load('assets/img/rato.png').convert_alpha()
     assets['mice_img'] = pygame.transform.scale(assets['mice_img'], (MICE_WIDTH, MICE_HEIGHT))
+    assets['instr_img'] = pygame.image.load('assets/img/instrucoes Grande.png').convert_alpha()
+    assets['instr_img'] = pygame.transform.scale(assets['instr_img'], (WIDTH, HEIGHT))
     explosion_anim = []
     for i in range(9):
         # Os arquivos de animação são numerados de 00 a 08
@@ -30,7 +36,10 @@ def load_assets():
         explosion_anim.append(img)
     assets[EXPLOSION_ANIM] = explosion_anim
     assets["score_font"] = pygame.font.Font('assets/font/PressStart2P.ttf', 28)
-    
+    assets["score_font_60"] = pygame.font.Font('assets/font/PressStart2P.ttf', 60)
+    assets["score_font_40"] = pygame.font.Font('assets/font/PressStart2P.ttf', 40)
+    assets["score_font_20"] = pygame.font.Font('assets/font/PressStart2P.ttf', 20)
+
     # Carrega os sons do jogo
     pygame.mixer.music.load('assets/snd/tgfcoder-FrozenJam-SeamlessLoop.ogg')
     pygame.mixer.music.set_volume(0.4)

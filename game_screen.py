@@ -127,9 +127,11 @@ def game_screen(window):
                 elif score <= 10000:
                     Police_control.speedx = -10
                     
-
-            if len(all_police) < 6:
-                if random.uniform(0, 3) < 0.008:
+            
+            if len(all_police) < 7:       
+                if score % 350 == 0:
+                # if random.uniform(0, 2) < 0.008:
+                # if pygame.time.get_ticks() % 1000 == 0:
                     police = Police(assets)
                     all_sprites.add(police)
                     all_police.add(police)
@@ -156,6 +158,7 @@ def game_screen(window):
                     state = DONE
                 else:
                     state = PLAYING
+                    # pygame.time.wait(1000)
                     player = Mice(groups, assets)
                     all_sprites.add(player)
 

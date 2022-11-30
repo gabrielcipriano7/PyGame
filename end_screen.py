@@ -1,20 +1,23 @@
 import pygame
 import random
 from os import path
-
+from assets import *
 from config import *
 
 
 def end_screen(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
+    assets = load_assets()
 
     # Carrega o fundo da tela inicial
+    
+    font2 = assets[SCORE_FONT_20]
+    font1 = assets[SCORE_FONT_60]
 
-    font1 = pygame.font.SysFont(None, 120)
     text1 = font1.render('GAME OVER!', True, RED)
-    font2 = pygame.font.SysFont(None, 60)
-    text2 = font2.render('Pressione qualquer tecla para sair.', True, WHITE)
+    
+    text2 = font2.render('Pressione qualquer tecla para sair', True, WHITE)
 
     running = True
     while running:

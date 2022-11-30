@@ -12,7 +12,7 @@ class Mice(pygame.sprite.Sprite):
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.centery = HEIGHT / 2
-        self.rect.left = WIDTH - (WIDTH -10)
+        self.rect.left = WIDTH/2 - MICE_WIDTH/2 - 25
         self.speedy = 0
         self.speedx = 0
         self.groups = groups
