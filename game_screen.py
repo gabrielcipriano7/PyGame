@@ -177,7 +177,7 @@ def game_screen(window):
         # Desenhando o nível
         text_surface2 = assets[SCORE_FONT].render(texto, True, YELLOW)
         text_rect2 = text_surface2.get_rect()
-        text_rect2.midbottom = (WIDTH / 2,  HEIGHT - 10)
+        text_rect2.midbottom = (WIDTH / 2,  HEIGHT - 20)
         window.blit(text_surface2, text_rect2)
 
         # Desenhando as vidas
