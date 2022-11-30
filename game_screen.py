@@ -28,9 +28,9 @@ def game_screen(window):
         all_sprites.add(police)
         all_police.add(police)
 
-    # texto1 = assets[SCORE_FONT].render("{:08d}".format('NÍVEL 1'), True, YELLOW)
-    # texto2 = assets[SCORE_FONT].render("{:08d}".format('NÍVEL 2'), True, YELLOW)
-    # texto3 = assets[SCORE_FONT].render("{:08d}".format('NÍVEL 3'), True, YELLOW)
+    texto1 = assets[SCORE_FONT].render("{:08d}".format('NÍVEL 1'), True, YELLOW)
+    texto2 = assets[SCORE_FONT].render("{:08d}".format('NÍVEL 2'), True, YELLOW)
+    texto3 = assets[SCORE_FONT].render("{:08d}".format('NÍVEL 3'), True, YELLOW)
 
 
     DONE = 0
