@@ -129,7 +129,7 @@ def game_screen(window):
                     
             
             if len(all_police) < 7:       
-                if score % 350 == 0:
+                if score % 400 == 0:
                 # if random.uniform(0, 2) < 0.008:
                 # if pygame.time.get_ticks() % 1000 == 0:
                     police = Police(assets)
@@ -183,7 +183,7 @@ def game_screen(window):
         # Desenhando as vidas
         text_surface = assets[SCORE_FONT].render(chr(9829) * lives, True, RED)
         text_rect = text_surface.get_rect()
-        text_rect.bottomleft = (10, HEIGHT - 10)
+        text_rect.bottomleft = (10, HEIGHT - 20)
         window.blit(text_surface, text_rect)
 
         pygame.display.update()  # Mostra o novo frame para o jogador
